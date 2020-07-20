@@ -1,0 +1,34 @@
+.pub-discussions-component {
+	padding-bottom: 18px;
+	.empty-state {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.discussion-list {
+		.discussion-component {
+			padding: 2em 1em;
+			border: 1px solid #ccc;
+			&:not(:last-child) {
+				border-bottom: 0px solid transparent;
+			}
+			&.has-manage-tools {
+				padding: 1em;
+			}
+			&.preview {
+				padding: 1em;
+				cursor: pointer;
+				.thread-comment-component {
+					margin-bottom: 0.5em;
+					border-bottom: 0px solid #f0f0f7; 
+					&:last-child {
+						margin-bottom: 0em;
+					}
+					.item-header {
+						margin-bottom: 0px;
+						line-height: 18px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+@import '../pub.scss';
+
+.pub-document-component {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+
+	.top-pub-edges {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.bottom-pub-edges {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.discussions {
+		background-color: #f8f8f8;
+		line-height: 1.6;
+		padding: 4em 0em;
+	}
+}
+
+/* This selector is a IE 10+ kludge */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.pub-grid {
+		width: 100%;
+		.main-content {
+			max-width: $pub-max-width;
+			margin: 0 auto;
+		}
+		.side-content {
+			max-width: $pub-max-width;
+			margin: 0 auto;
+		}
+	}
+}
+
+@supports (display: grid) {
+	.pub-grid {
+		@include has-grid('. pub . comments .');
+		width: 100%;
+		.main-content {
+			grid-area: pub;
+		}
+		.side-content {
+			grid-area: comments;
+		}
+	}
+	@include pub-full-view {
+		.pub-document-component {
+			.pub-columns {
+				margin-top: 3em;
+			}
+			.side-content {
+				.header-title {
+					display: block;
+					font-weight: 600;
+					font-size: 16px;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+
+	@include pub-compact-view {
+		.pub-grid {
+			.side-content > * {
+				display: none;
+			}
+		}
+	}
+}
+
+@media print {
+	#pub-old-container {
+		.container.pub {
+			max-width: 100%;
+		}
+	}
+}

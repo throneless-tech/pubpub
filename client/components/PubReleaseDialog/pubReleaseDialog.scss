@@ -1,0 +1,10 @@
+.pub-release-dialog-component {
+    .minimal-editor-component {
+        height: 150px;
+        overflow: auto;
+        margin-bottom: 10px;
+        .editor-wrapper {
+            min-height: 100%;
+        }
+    }
+}
